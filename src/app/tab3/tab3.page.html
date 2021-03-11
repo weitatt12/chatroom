@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <div style="width: 100vw; display: flex; justify-content: center; align-items: center; position: relative; padding: 20px;">
+    <div style="position: absolute; left: 10px;">
+      
+    </div>
+
+    <div style="color: black;">
+      Profile Page
+    </div>
+
+    <div (click)="logout()" style="position: absolute; right: 10px; color: black;">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="padding: 20px;">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img style="object-fit: cover; border-radius: 100%; width: 200px; height: 200px;" src="{{ profileDetails.photo }}" alt="">
+    </div>
+
+    <div style="text-align: center; font-size: 40px; padding-top: 20px;">
+      {{ profileDetails.name }}
+    </div>
+
+    <div>
+      <div style="width: 100%; position: relative; display: flex; align-items: center; justify-content: center; padding-top: 20px;">
+        <div style="position: absolute; left: 10px;">
+          Gender:
+        </div>
+        <div style="padding-left: 10px;">
+          {{ profileDetails.gender }}
+        </div>
+      </div>
+  
+      <div style="width: 100%; position: relative; display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="position: absolute; left: 10px">
+          D.O.B:
+        </div>
+        <div style="padding-left: 10px;">
+          {{ profileDetails.dob | date:'MMM d, yyyy' }}
+        </div>
+      </div>
+  
+      <div style="width: 100%; position: relative; display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="position: absolute; left: 10px">
+          Email:
+        </div>
+        <div>
+          {{ profileDetails.email }}
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width: 100%; display: flex; justify-content: center; padding-top: 20px;">
+      <ion-button (click)="edit()" style="width: 100%;" shape="round">Edit</ion-button>
+    </div>
+
+  </div>
+</ion-content>

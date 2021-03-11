@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="padding: 20px;">
+    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: calc( 100vw - 20px - 20px);">
+        
+      <div *ngFor="let chat of chatRooms">
+        <div (click)="chatroom(chat)" style="width: calc( 100vw - 20px - 20px ); display: flex; align-items: center; margin-bottom: 20px; box-shadow: 2px 3px 5px grey;">
+          <div style="padding: 10px;">
+            <img style="object-fit: cover; width: 100px; height: 100px; border-radius: 100%" src="{{ chat.photo }}" alt="">
+          </div>
+          <div style="width:50%; padding-left: 10px; word-wrap: break-word;">
+            <div> {{ chat.name }} </div>
+  
+            <div> {{ count(chat.currentUsers) }} / {{ chat.capacity }} </div>
+            
+            <div> {{ chat.dateCreated | date:'MMM d, yyyy' }}  </div>
+          </div>
+        </div>
+      </div>
+
+      <div (click)="addNewChat()" style="display: flex; justify-content: flex-end; align-items: flex-end; width: 100%;">
+        <ion-icon style="width: 50px; height: 50px; background-color: blue; color: white; border-radius: 100%;" name="add-circle-outline"></ion-icon>
+      </div>
+      
+    </div>
+  </div>
+
+</ion-content>

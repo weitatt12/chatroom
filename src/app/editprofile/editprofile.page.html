@@ -1,0 +1,104 @@
+<ion-header style="background-color: white; color: black;">
+  <div style="width: 100vw; display: flex; justify-content: center; align-items: center; position: relative; padding: 20px;">
+    <div style="position: absolute; left: 10px;">
+      <ion-icon (click)="back()" name="chevron-back-outline"></ion-icon>
+    </div>
+
+    <div>
+      Edit Profile Page
+    </div>
+
+    <div style="position: absolute; right: 10px;">
+      
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 20px; width: calc( 100vw );">
+
+    <div>
+      <div>
+        <div class="addphoto">
+          <div class="insert">
+            <label for="files"
+              style="width: 100%; display: flex; justify-content: center; align-items: center;">
+              <!-- <ion-icon class="addbtn" name="camera-outline"></ion-icon>  -->
+              <div style="display: flex; justify-content: center; align-items: center;">
+                <img *ngIf="!userDetails.photo" class="profilepic" style="border-radius: 10px;" src="{{ userDetails.photo }}" alt="">
+                <img *ngIf="userDetails.photo" class="profilepic" src="{{ userDetails.photo }}" alt="">
+              </div>
+            </label>
+            <input style="display: none" id="files" class="inputclass" accept="image/*" type="file" value=""
+              (change)="fileChange($event)">
+            <canvas style="display: none;" id="canvas"></canvas>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top: 30px;">
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="person-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px; width: calc( 100% - 70px - 70px );">
+          <ion-label position="floating"></ion-label>
+          <ion-input [(ngModel)]="userDetails.name" style="border-bottom: 1px solid lightgrey;" type="text"></ion-input>
+        </div>
+      </div>
+
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="mail-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px; width: calc( 100% - 70px - 70px );">
+          <ion-label position="floating"></ion-label>
+          <ion-input [(ngModel)]="userDetails.email" style="border-bottom: 1px solid lightgrey;" type="email"></ion-input>
+        </div>
+      </div>
+      
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="transgender-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px; display: flex; justify-content: space-between; width: 197px;">
+          <div style="display: flex; align-items: center;">
+            <ion-label>Gender</ion-label>
+          </div>
+          <ion-select [(ngModel)]="userDetails.gender">
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+          </ion-select>
+          <!-- <div style="display: flex; justify-content: space-between; width: 177px;">
+            <div style="padding-left: 10px;">
+              <input (input)="getGender($event)" type="radio" name="gender" id="male" value="male" />
+              <label style="padding-left: 5px;" for="male">Male</label>
+            </div>
+            <div style="padding-left: 20px;">
+              <input (input)="getGender($event)" type="radio" name="gender" id="female" value="female" />
+              <label style="padding-left: 5px" for="female">Female</label>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="gift-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px; width: 197px; border: 1px solid white;">
+          <ion-datetime [(ngModel)]="userDetails.dob" displayFormat="MM/DD/YYYY" name="dob" id="dob"></ion-datetime>   
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display: flex; justify-content: center; padding-top: 20px;">
+      <ion-button (click)="save()" style="width: calc( 100% - 20px - 20px);" shape="round">Save</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

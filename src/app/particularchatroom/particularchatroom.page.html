@@ -1,0 +1,85 @@
+<ion-header style="background-color: white; color: black;">
+  <div style="width: 100vw; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 20px;">
+    <div style="margin-left: 20px; font-size: 20px;">
+      <ion-icon (click)="back()" name="chevron-back-outline"></ion-icon>
+    </div>
+
+    <div>
+      Chatroom
+    </div>
+
+    <div style="display: flex;">
+      <div style="margin-left: 10px; font-size: 20px;">
+        <ion-icon name="person-add-outline"></ion-icon>
+      </div>
+      <div style="margin-left: 10px; font-size: 20px;">
+        <ion-icon name="settings-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 20px; width: 100vw;">
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; padding: 15px 10px;" id="mainDIV">
+      
+      <div *ngFor="let msg of msgDetails" style="width: 100%;">
+
+        <div *ngIf="msg.createdBy == userId" style="width: 100%; display: flex; align-items: center; justify-content: flex-end; margin-bottom: 15px;">
+          <div style="width: max-content; max-width: calc( ( 100% - 20px - 20px ) * 0.7); text-align: right; background-color: chartreuse; padding: 15px;">
+            <ion-icon name="close-outline" (click)="delete(i)"></ion-icon>
+            <div>
+              {{ msg.detail }}
+            </div>
+            <!-- <div>
+              <img style='height:95px;width:95px;object-fit: cover; margin-right: 10px;' src="{{ msg.photo }}" alt="" />
+            </div> -->
+          </div>
+          
+        </div>
+        <div style="font-size: 10px;">
+          {{ msg.dateCreated | date:'MMM d, yyyy' }}
+        </div>
+
+        <!-- other user -->
+        <div *ngIf="!(msg.createdBy == userId)" style="display: flex; justify-content: flex-start;">
+          <div style="width: 100%; display: flex; align-items: flex-end; justify-content: flex-start; margin-bottom: 15px;" id="fromOther">
+            <img style='height:30px;width:30px;object-fit: cover;border-radius:100%; margin-right: 10px; margin-bottom: 10px;' src="{{ msg.userPhoto }}" alt="">
+            <div style="width: max-content; max-width: calc( (100% - 30px - 10px) * 0.7 );">
+              <div style=" text-align: left; background-color: gainsboro; padding: 15px;">
+                {{ msg.detail }}
+              </div>
+              
+              <div style="display: flex; flex-wrap: wrap;">
+                <!-- <div *ngFor="let image of k.photos, let j = index">
+                  <img style='height:95px;width:95px;object-fit: cover; margin-right: 10px;' src="{{image}}" alt="">
+                </div> -->
+                
+              </div>
+            </div>
+            <div style="font-size: 10px;">
+              {{ msg.dateCreated | date:'MMM d, yyyy' }}
+            </div>
+          </div>
+
+        </div>
+
+        
+      </div>
+        
+      </div>
+  </div>
+
+</ion-content>
+
+<ion-footer style="color: black; background-color: white;">
+  <div style="width: 100vw; height:60px; padding: 10px; border-top: 1px solid grey; display: flex; align-items: center;">
+    <ion-icon style="padding: 10px; font-size: 20px;" name="folder-outline"></ion-icon>
+    <ion-input [(ngModel)]="texter" style="width: 300px; height: 100%; border: 1px solid #999999; border-radius: 5px; --padding-start: 10px;" placeholder="Type something..." rows="2"></ion-input>
+
+    <div style="padding: 10px">
+      <ion-icon style="font-size: 20px;" name="send" (click)="sendCloud()"></ion-icon>
+    </div>
+
+  </div>
+</ion-footer>

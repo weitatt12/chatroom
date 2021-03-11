@@ -1,0 +1,66 @@
+<ion-header collapse="condense">
+  <div style="display: flex; justify-content: center; align-items: center; width: 100vw; padding: 20px; height: 60px; background-color: white;">
+    <div style="border-radius: 100%; width: 40px; display: flex; align-items: center; margin-left: 10px; font-size: 50px; width: 30px;">
+      
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; font-size: 20px; width: 65px; padding: 5px;">
+      <div style="display: flex; align-items: center;">
+        Signin
+      </div>
+    </div>
+  </div>
+    
+</ion-header>
+
+<ion-content>
+
+  <div style="padding: 20px; width: calc( 100vw );">
+
+    <div>
+      <img style="object-fit: cover; width: calc( 100% );" src="https://logosolusa.com/wp-content/uploads/parser/Random-Logo-1.png" alt="logo">
+    </div>
+
+    <div style="padding-top: 50px;">
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="person-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px;">
+          <ion-label position="floating"></ion-label>
+          <ion-input [(ngModel)]="email" style="border-bottom: 1px solid lightgrey;" type="email" placeholder="Email"></ion-input>
+        </div>
+      </div>
+      
+      <div style="width: calc( 100% ); display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <div style="width: 20px; padding-right: 20px;">
+          <ion-icon style="width: 20px;" name="key-outline"></ion-icon>
+        </div>
+        <div style="padding-left: 20px;">
+          <ion-label position="floating"></ion-label>
+          <ion-input [(ngModel)]="password" style="border-bottom: 1px solid lightgrey;" type="password" placeholder="password"></ion-input>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+  
+</ion-content>
+
+<ion-footer style="background-color: white; color:black;">
+  <div style="margin-bottom: 20px; display: flex; justify-content: center;">
+    <div>
+      <div style="display: flex; justify-content: center;">
+        <ion-button (click)="signin()" color="danger" shape="round">Signin</ion-button>
+      </div>
+  
+      <div (click)="signup()" style="display: flex;">
+        <div style="font-size: 10px; padding-top: 10px;">
+          <small style="font-size: 10px;">Don't have an account?</small>
+          Sign Up
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</ion-footer>
